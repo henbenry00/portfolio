@@ -5,12 +5,14 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
 	<div id="bg"></div>
 	<main>
-		<h1>Ben Henry</h1>
-		<p id="title">DevOps & Infrastructure Engineer</p>
-		<p id="description">
-			Building self-hosted systems, automation, and full-stack projects.
-		</p>
-		<p id="badge">Coming Soon</p>
+		<div id="card">
+			<h1>Ben Henry</h1>
+			<p id="title">DevOps & Infrastructure Engineer</p>
+			<p id="description">
+				Building self-hosted systems, automation, and full-stack projects.
+			</p>
+			<p id="badge">Coming Soon</p>
+		</div>
 	</main>
 </Layout>
 
@@ -95,36 +97,49 @@ import Layout from '../layouts/Layout.astro';
 		padding: 16px;
 	}
 
+	#card {
+		background: rgba(10, 11, 14, 0.55);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 28px;
+		padding: 3rem 3.5rem;
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		box-shadow:
+			0 20px 60px rgba(0, 0, 0, 0.35),
+			inset 0 1px 0 rgba(255, 255, 255, 0.06);
+		max-width: 90vw;
+	}
+
 	h1 {
 		font-size: clamp(2.5rem, 6vw, 4rem);
 		margin: 0;
 		letter-spacing: -0.02em;
-		text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+		text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 	}
 
 	#title {
 		margin: 0.75em 0 0;
 		font-size: 1.15rem;
-		color: #c7c9d1;
-		font-weight: 500;
+		color: #8fb8e0;
+		font-weight: 600;
 	}
 
 	#description {
 		margin: 0.5em 0 0;
 		font-size: 1rem;
-		color: #9ca3af;
+		color: #b6bac2;
 		max-width: 32em;
 	}
 
 	#badge {
 		margin-top: 2em;
 		padding: 0.5em 1.25em;
-		border: 1px solid #3f4148;
+		border: 1px solid rgba(143, 184, 224, 0.45);
 		border-radius: 999px;
 		font-size: 0.85rem;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		color: #d1d5db;
-		backdrop-filter: blur(4px);
+		color: #bcdcfb;
+		background: rgba(143, 184, 224, 0.08);
 	}
 </style>
