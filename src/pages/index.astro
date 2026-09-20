@@ -1,11 +1,60 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<main>
+		<h1>Ben Henry</h1>
+		<p id="title">DevOps & Infrastructure Engineer</p>
+		<p id="description">
+			Building self-hosted systems, automation, and full-stack projects.
+		</p>
+		<p id="badge">Coming Soon</p>
+	</main>
 </Layout>
+
+<style>
+	main {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		background: #0f1115;
+		color: #f5f5f5;
+		padding: 16px;
+	}
+
+	h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		margin: 0;
+		letter-spacing: -0.02em;
+	}
+
+	#title {
+		margin: 0.75em 0 0;
+		font-size: 1.15rem;
+		color: #a5b4fc;
+		font-weight: 500;
+	}
+
+	#description {
+		margin: 0.5em 0 0;
+		font-size: 1rem;
+		color: #9ca3af;
+		max-width: 32em;
+	}
+
+	#badge {
+		margin-top: 2em;
+		padding: 0.5em 1.25em;
+		border: 1px solid #374151;
+		border-radius: 999px;
+		font-size: 0.85rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #d1d5db;
+	}
+</style>
