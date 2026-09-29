@@ -1,0 +1,5 @@
+{
+	"name": "MCH Dongle",
+	"description": "A Raspberry Pi kiosk device that drives the TV or projector display for churches running MyChurchHelper.",
+	"status": "in-development"
+}

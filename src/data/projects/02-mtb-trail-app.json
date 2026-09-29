@@ -1,0 +1,5 @@
+{
+	"name": "MTB Trail App",
+	"description": "Community-driven mountain bike trail conditions, built on OpenStreetMap data with a React + MapLibre frontend.",
+	"status": "prototype"
+}

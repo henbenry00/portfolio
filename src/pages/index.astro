@@ -1,10 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SpaceBackground from '../components/SpaceBackground.astro';
+import Background from '../components/Background.astro';
+import { getRepoLastCommit, formatRelative } from '../lib/buildInfo';
+
+const build = getRepoLastCommit();
 ---
 
 <Layout>
-	<SpaceBackground />
+	<Background />
 	<main>
 		<div id="card">
 			<h1>Ben Henry</h1>
@@ -14,6 +17,15 @@ import SpaceBackground from '../components/SpaceBackground.astro';
 			</p>
 			<a id="badge" href="/projects">See Projects</a>
 		</div>
+
+		{
+			build && (
+				<p id="build-info">
+					<span class="dot" />
+					deployed {formatRelative(build.date)} · <code>{build.hash}</code>
+				</p>
+			)
+		}
 	</main>
 </Layout>
 
@@ -31,13 +43,10 @@ import SpaceBackground from '../components/SpaceBackground.astro';
 	}
 
 	#card {
-		background: rgba(12, 16, 28, 0.82);
-		border: 1px solid rgba(124, 199, 255, 0.25);
-		border-radius: 28px;
+		background: #111318;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 12px;
 		padding: 3rem 3.5rem;
-		box-shadow:
-			0 20px 60px rgba(0, 0, 0, 0.4),
-			inset 0 1px 0 rgba(255, 255, 255, 0.05);
 		max-width: 90vw;
 	}
 
@@ -45,20 +54,19 @@ import SpaceBackground from '../components/SpaceBackground.astro';
 		font-size: clamp(2.5rem, 6vw, 4rem);
 		margin: 0;
 		letter-spacing: -0.02em;
-		text-shadow: 0 0 30px rgba(124, 199, 255, 0.35);
 	}
 
 	#title {
 		margin: 0.75em 0 0;
 		font-size: 1.15rem;
-		color: #8fb8e0;
+		color: #7ba9e0;
 		font-weight: 600;
 	}
 
 	#description {
 		margin: 0.5em 0 0;
 		font-size: 1rem;
-		color: #a3adc2;
+		color: #9299a8;
 		max-width: 32em;
 	}
 
@@ -66,23 +74,60 @@ import SpaceBackground from '../components/SpaceBackground.astro';
 		display: inline-block;
 		margin-top: 2em;
 		padding: 0.65em 1.5em;
-		border: 1px solid rgba(124, 199, 255, 0.45);
-		border-radius: 999px;
+		border: 1px solid rgba(94, 158, 255, 0.4);
+		border-radius: 8px;
 		font-size: 0.85rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
+		letter-spacing: 0.04em;
 		text-decoration: none;
-		color: #bcdcfb;
-		background: rgba(124, 199, 255, 0.08);
+		color: #cfe0ff;
+		background: rgba(94, 158, 255, 0.1);
 		transition:
-			background 0.2s ease,
-			border-color 0.2s ease,
-			transform 0.2s ease;
+			background 0.15s ease,
+			border-color 0.15s ease;
 	}
 
 	#badge:hover {
-		background: rgba(124, 199, 255, 0.18);
-		border-color: rgba(124, 199, 255, 0.7);
-		transform: translateY(-1px);
+		background: rgba(94, 158, 255, 0.18);
+		border-color: rgba(94, 158, 255, 0.7);
+	}
+
+	#build-info {
+		margin: 1.5rem 0 0;
+		font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+		font-size: 0.75rem;
+		letter-spacing: 0.02em;
+		color: #5b6270;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+
+	#build-info code {
+		color: #7c8291;
+	}
+
+	.dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: #4ade80;
+		box-shadow: 0 0 6px rgba(74, 222, 128, 0.7);
+		animation: pulse 2.5s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 0.6;
+		}
+		50% {
+			opacity: 1;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.dot {
+			animation: none;
+		}
 	}
 </style>
