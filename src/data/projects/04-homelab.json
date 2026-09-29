@@ -1,5 +1,5 @@
 {
 	"name": "Homelab Infrastructure",
-	"description": "TrueNAS SCALE server running Docker workloads, Tailscale networking, and a Cloudflare Tunnel front door.",
+	"description": "TrueNAS SCALE server running Docker workloads, Tailscale networking, and Cloudflare Tunneling.",
 	"status": "operational"
 }
