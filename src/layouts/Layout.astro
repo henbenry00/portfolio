@@ -1,3 +1,12 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = 'Ben Henry', description = "Ben Henry's portfolio — coming soon." } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,8 +15,8 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Ben Henry's portfolio — coming soon." />
-		<title>Ben Henry</title>
+		<meta name="description" content={description} />
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot />

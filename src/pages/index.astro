@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SpaceBackground from '../components/SpaceBackground.astro';
 ---
 
 <Layout>
-	<div id="bg"></div>
+	<SpaceBackground />
 	<main>
 		<div id="card">
 			<h1>Ben Henry</h1>
@@ -11,80 +12,12 @@ import Layout from '../layouts/Layout.astro';
 			<p id="description">
 				Building self-hosted systems, automation, and full-stack projects.
 			</p>
-			<p id="badge">Coming Soon</p>
+			<a id="badge" href="/projects">See Projects</a>
 		</div>
 	</main>
 </Layout>
 
 <style>
-	#bg {
-		position: fixed;
-		inset: -10%;
-		z-index: -1;
-		background:
-			radial-gradient(circle at 20% 30%, rgba(220, 222, 228, 0.35), transparent 55%),
-			radial-gradient(circle at 78% 25%, rgba(190, 193, 200, 0.3), transparent 50%),
-			radial-gradient(circle at 50% 78%, rgba(205, 207, 214, 0.28), transparent 55%),
-			radial-gradient(circle at 28% 82%, rgba(170, 173, 182, 0.22), transparent 50%),
-			linear-gradient(160deg, #0b0c0f 0%, #17191f 45%, #0b0c0f 100%);
-		background-size:
-			180% 180%,
-			160% 160%,
-			200% 200%,
-			170% 170%,
-			100% 100%;
-		filter: blur(60px);
-		animation:
-			drift 24s ease-in-out infinite alternate,
-			breathe 7s ease-in-out infinite;
-		will-change: background-position, transform, opacity;
-	}
-
-	@keyframes drift {
-		0% {
-			background-position:
-				10% 20%,
-				90% 10%,
-				40% 90%,
-				20% 70%,
-				0 0;
-		}
-		50% {
-			background-position:
-				60% 50%,
-				30% 60%,
-				70% 30%,
-				60% 40%,
-				0 0;
-		}
-		100% {
-			background-position:
-				90% 80%,
-				10% 90%,
-				20% 60%,
-				80% 20%,
-				0 0;
-		}
-	}
-
-	@keyframes breathe {
-		0%,
-		100% {
-			transform: scale(1);
-			opacity: 0.85;
-		}
-		50% {
-			transform: scale(1.05);
-			opacity: 1;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		#bg {
-			animation: none;
-		}
-	}
-
 	main {
 		height: 100%;
 		display: flex;
@@ -98,15 +31,15 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	#card {
-		background: rgba(10, 11, 14, 0.55);
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(12, 16, 28, 0.6);
+		border: 1px solid rgba(124, 199, 255, 0.25);
 		border-radius: 28px;
 		padding: 3rem 3.5rem;
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
 		box-shadow:
-			0 20px 60px rgba(0, 0, 0, 0.35),
-			inset 0 1px 0 rgba(255, 255, 255, 0.06);
+			0 20px 60px rgba(0, 0, 0, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.05);
 		max-width: 90vw;
 	}
 
@@ -114,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
 		font-size: clamp(2.5rem, 6vw, 4rem);
 		margin: 0;
 		letter-spacing: -0.02em;
-		text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+		text-shadow: 0 0 30px rgba(124, 199, 255, 0.35);
 	}
 
 	#title {
@@ -127,19 +60,31 @@ import Layout from '../layouts/Layout.astro';
 	#description {
 		margin: 0.5em 0 0;
 		font-size: 1rem;
-		color: #b6bac2;
+		color: #a3adc2;
 		max-width: 32em;
 	}
 
 	#badge {
+		display: inline-block;
 		margin-top: 2em;
-		padding: 0.5em 1.25em;
-		border: 1px solid rgba(143, 184, 224, 0.45);
+		padding: 0.65em 1.5em;
+		border: 1px solid rgba(124, 199, 255, 0.45);
 		border-radius: 999px;
 		font-size: 0.85rem;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
+		text-decoration: none;
 		color: #bcdcfb;
-		background: rgba(143, 184, 224, 0.08);
+		background: rgba(124, 199, 255, 0.08);
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	#badge:hover {
+		background: rgba(124, 199, 255, 0.18);
+		border-color: rgba(124, 199, 255, 0.7);
+		transform: translateY(-1px);
 	}
 </style>
