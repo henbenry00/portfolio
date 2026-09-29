@@ -18,63 +18,35 @@
 			radial-gradient(circle at 55% 80%, rgba(157, 92, 224, 0.3), transparent 55%),
 			radial-gradient(circle at 15% 85%, rgba(60, 70, 120, 0.3), transparent 50%),
 			linear-gradient(160deg, #05060a 0%, #0a0d16 45%, #05060a 100%);
-		background-size:
-			180% 180%,
-			160% 160%,
-			200% 200%,
-			170% 170%,
-			100% 100%;
-		filter: blur(70px);
-		animation:
-			drift 30s ease-in-out infinite alternate,
-			breathe 8s ease-in-out infinite;
+		filter: blur(56px);
+		animation: nebulaFloat 26s ease-in-out infinite alternate;
+		will-change: transform, opacity;
+		transform: translateZ(0);
 	}
 
-	@keyframes drift {
+	@keyframes nebulaFloat {
 		0% {
-			background-position:
-				10% 20%,
-				90% 10%,
-				40% 90%,
-				20% 70%,
-				0 0;
-		}
-		50% {
-			background-position:
-				60% 50%,
-				30% 60%,
-				70% 30%,
-				60% 40%,
-				0 0;
-		}
-		100% {
-			background-position:
-				90% 80%,
-				10% 90%,
-				20% 60%,
-				80% 20%,
-				0 0;
-		}
-	}
-
-	@keyframes breathe {
-		0%,
-		100% {
-			transform: scale(1);
+			transform: translate(-2%, -1%);
 			opacity: 0.85;
 		}
 		50% {
-			transform: scale(1.05);
+			transform: translate(2%, 2%);
 			opacity: 1;
+		}
+		100% {
+			transform: translate(-1%, 2%);
+			opacity: 0.85;
 		}
 	}
 
 	#stars-far,
 	#stars-near {
 		position: fixed;
-		inset: -50px;
+		inset: -150px;
 		z-index: -2;
 		background-repeat: repeat;
+		will-change: transform;
+		transform: translateZ(0);
 	}
 
 	#stars-far {
@@ -87,7 +59,7 @@
 			radial-gradient(1px 1px at 90% 90%, #fff, transparent);
 		background-size: 220px 220px;
 		opacity: 0.5;
-		animation: driftStars 180s linear infinite;
+		animation: starsDriftFar 200s linear infinite alternate;
 	}
 
 	#stars-near {
@@ -100,16 +72,25 @@
 		background-size: 340px 340px;
 		opacity: 0.7;
 		animation:
-			driftStars 110s linear infinite reverse,
+			starsDriftNear 140s linear infinite alternate,
 			twinkle 4s ease-in-out infinite;
 	}
 
-	@keyframes driftStars {
+	@keyframes starsDriftFar {
 		from {
-			background-position: 0 0;
+			transform: translate(0, 0);
 		}
 		to {
-			background-position: 1000px 1000px;
+			transform: translate(-110px, -90px);
+		}
+	}
+
+	@keyframes starsDriftNear {
+		from {
+			transform: translate(0, 0);
+		}
+		to {
+			transform: translate(90px, -110px);
 		}
 	}
 
